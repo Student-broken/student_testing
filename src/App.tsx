@@ -8,6 +8,8 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
 import RankingPage from './components/RankingPage';
 import ProjectionPage from './components/ProjectionPage';
+import TicketPage from './components/TicketPage';
+import DocumentationPage from './components/DocumentationPage';
 import { ThemeProvider } from './context/ThemeContext';
 
 const App: React.FC = () => {
@@ -23,6 +25,8 @@ const App: React.FC = () => {
         <Route path="/improve" element={<ImprovePage />} />
         <Route path="/ranking" element={<RankingPage />} />
         <Route path="/projection" element={<ProjectionPage />} />
+        <Route path="/ticket" element={<TicketPage />} />
+        <Route path="/documentation" element={<DocumentationPage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
       </Routes>
