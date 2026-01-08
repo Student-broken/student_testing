@@ -119,7 +119,15 @@ const Dashboard: React.FC = () => {
                     </div>
                 </div>
 
-                <SettingsPanel settings={data.settings} onUpdate={handleSettingsUpdate} />
+                <div className="header-right">
+                    <Link to="/improve" className="icon-btn" title="Analyse" style={{ marginRight: '10px' }}><i className="fa-solid fa-chart-line"></i></Link>
+                    <Link to="/projection" className="icon-btn" title="Projection" style={{ marginRight: '10px' }}><i className="fa-solid fa-wand-magic-sparkles"></i></Link>
+                    <Link to="/ranking" className="icon-btn" title="Classement" style={{ marginRight: '10px' }}><i className="fa-solid fa-trophy"></i></Link>
+                    <SettingsPanel
+                        settings={data.settings}
+                        onUpdate={handleSettingsUpdate}
+                    />
+                </div>
 
                 <div className="subject-averages">
                     <h4>Moyennes par matière</h4>

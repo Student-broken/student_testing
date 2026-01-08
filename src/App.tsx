@@ -6,10 +6,9 @@ import WelcomePage from './components/WelcomePage';
 import ImprovePage from './components/ImprovePage';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
+import RankingPage from './components/RankingPage';
+import ProjectionPage from './components/ProjectionPage';
 import { ThemeProvider } from './context/ThemeContext';
-
-// Placeholder for Projection
-const ProjectionPage = () => <div className="content"><h1 style={{ color: 'var(--text-color)' }}>Projection (Bientôt disponible)</h1></div>;
 
 const App: React.FC = () => {
   return (
@@ -22,6 +21,7 @@ const App: React.FC = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/import" element={<ImportPage />} />
         <Route path="/improve" element={<ImprovePage />} />
+        <Route path="/ranking" element={<RankingPage />} />
         <Route path="/projection" element={<ProjectionPage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
