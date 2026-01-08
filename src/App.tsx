@@ -1,56 +1,32 @@
-import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { ThemeProvider, useTheme } from './context/ThemeContext';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import ImportPage from './components/ImportPage';
-import './index.css';
+import WelcomePage from './components/WelcomePage';
+import { ThemeProvider } from './context/ThemeContext';
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
-  const { theme, toggleTheme } = useTheme();
+// Placeholder components for routes we are about to build
+const ImprovePage = () => <div className="content"><h1 style={{ color: 'var(--text-color)' }}>Analyse (Bientôt disponible)</h1></div>;
+const ProjectionPage = () => <div className="content"><h1 style={{ color: 'var(--text-color)' }}>Projection (Bientôt disponible)</h1></div>;
 
-  return (
-    <div className="app-container">
-      <header className="site-header-container">
-        <div className="header-left">
-          {/* Placeholder for Back button if needed, or Conditionally render */}
-          <Link to="/" className="icon-btn" title="Retour à l'accueil">
-            <i className="fa-solid fa-home"></i>
-          </Link>
-        </div>
-        <div className="header-center">
-          <h1 className="site-header">Outil MBS</h1>
-        </div>
-        <div className="header-right">
-          <button onClick={toggleTheme} className="icon-btn" aria-label="Changer de thème">
-            <i className={`fa-solid ${theme === 'dark' ? 'fa-sun' : 'fa-moon'}`}></i>
-          </button>
-          <Link to="/import" className="btn btn-secondary">Mise à jour</Link>
-          <a href="#" className="btn btn-primary">Analyser</a>
-        </div>
-      </header>
-      <main className="main-container">
-        {children}
-      </main>
-      <footer>
-        <p>Outil MBS - Moyenne, Bilan, Stratégie</p>
-        <p><a href="#">Signaler un problème</a></p>
-      </footer>
-    </div>
-  );
-};
-
-function App() {
+const App: React.FC = () => {
   return (
     <ThemeProvider>
-      <Router>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/import" element={<ImportPage />} />
-          </Routes>
-        </Layout>
-      </Router>
+      <div className="background-container"></div>
+      <div className="background-overlay"></div>
+
+      {/* Theme Toggle is global */}
+      {/* We can move it to a Layout component, but for now it's in ThemeProvider's responsibility or simple absolute div */}
+
+      <Routes>
+        <Route path="/" element={<WelcomePage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/import" element={<ImportPage />} />
+        <Route path="/improve" element={<ImprovePage />} />
+        <Route path="/projection" element={<ProjectionPage />} />
+      </Routes>
     </ThemeProvider>
   );
-}
+};
 
 export default App;
