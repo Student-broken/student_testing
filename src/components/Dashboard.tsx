@@ -45,6 +45,24 @@ const TermTable: React.FC<TermTableProps> = ({ data }) => {
                     </tbody>
                 </table>
             ))}
+
+            <footer style={{
+                textAlign: 'center',
+                padding: '20px',
+                marginTop: '40px',
+                borderTop: '1px solid var(--border-color)',
+                color: 'var(--text-secondary-color)',
+                fontSize: '0.9em'
+            }}>
+                <div style={{ marginBottom: '10px' }}>
+                    <Link to="/ticket" style={{ marginRight: '15px', color: 'var(--primary-color)', textDecoration: 'none' }}>Signaler un problème</Link>
+                    <Link to="/documentation" style={{ color: 'var(--primary-color)', textDecoration: 'none' }}>Documentation</Link>
+                </div>
+                <div>
+                    <Link to="/terms" style={{ marginRight: '15px', color: 'inherit', textDecoration: 'none' }}>Conditions</Link>
+                    <Link to="/privacy" style={{ color: 'inherit', textDecoration: 'none' }}>Confidentialité</Link>
+                </div>
+            </footer>
         </div>
     );
 };
