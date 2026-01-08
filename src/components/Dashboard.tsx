@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import type { MBSData, Subject } from '../lib/types';
+import type { MBSData, Subject, Settings } from '../lib/types';
 import { storage } from '../lib/storage';
 import { calculateAllAverages } from '../lib/math';
+import SettingsPanel from './SettingsPanel';
 
 interface TermTableProps {
     data: Subject[] | undefined;
@@ -60,6 +61,13 @@ const Dashboard: React.FC = () => {
         });
     }, []);
 
+    const handleSettingsUpdate = (newSettings: Settings) => {
+        if (!data) return;
+        const newData = { ...data, settings: newSettings };
+        setData(newData);
+        storage.saveData(newData);
+    };
+
     const averages = useMemo(() => {
         if (!data) return null;
         return calculateAllAverages(data);
@@ -111,7 +119,7 @@ const Dashboard: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Simplified Side Panel: No settings controls yet for simplicity in v1 refactor */}
+                <SettingsPanel settings={data.settings} onUpdate={handleSettingsUpdate} />
 
                 <div className="subject-averages">
                     <h4>Moyennes par matière</h4>
