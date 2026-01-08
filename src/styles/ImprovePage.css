@@ -1,0 +1,158 @@
+/* ImprovePage.css - Ported from legacy/improve.html */
+
+/* Root variables are inherited from index.css, so we skip :root and dark mode vars that are duplicates */
+
+/* Specific Improve Page Styles */
+.sticky-tabs {
+    position: sticky;
+    top: 0;
+    background-color: var(--background-color);
+    z-index: 100;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    border: 1px solid var(--light-grey);
+    border-radius: 20px;
+    background-color: transparent;
+    color: var(--text-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tab-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.widget-grid {
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 25px;
+}
+
+/* Subject Widget Styles */
+.subject-widget {
+    background-color: var(--widget-background);
+    border-radius: 12px;
+    box-shadow: var(--shadow-widget);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    /* For layout context */
+}
+
+.subject-widget:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+.widget-top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.widget-info {
+    flex: 1;
+}
+
+.widget-title {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin: 0 0 10px 0;
+}
+
+/* Dark theme adjustment for title */
+[data-theme="dark"] .widget-title {
+    color: var(--text-color);
+}
+
+.widget-average {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.widget-trend {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.widget-trend.up {
+    color: var(--success-color);
+}
+
+.widget-trend.down {
+    color: var(--danger-color);
+}
+
+.widget-trend.neutral {
+    color: var(--text-secondary-color);
+}
+
+.gauge-container {
+    width: 120px;
+    height: 70px;
+    position: relative;
+}
+
+.histogram-container {
+    margin-top: 15px;
+    height: 120px;
+    width: 100%;
+}
+
+.widget-chart-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 5px;
+    height: 25px;
+    gap: 5px;
+}
+
+.chart-toggle-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary-color);
+    /* Updated to variable */
+    padding: 4px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8em;
+}
+
+.chart-toggle-btn:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.chart-toggle-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Modal / Expanded View Styles would go here if we were using the exact same overlay structure */
